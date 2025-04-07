@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Premium | AveiroHub</title>
+    <meta name="description" content="Descubra nossos produtos locais premium de Aveiro. Qualidade garantida e entrega rápida.">
+    
+    <!-- CSS Inline Crítico -->
+    <style>
+        /* Filtros */
+.filters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.9rem;
+}
+
+.filter-select {
+    padding: 12px;
+    border: 1px solid var(--beige-dark);
+    border-radius: 8px;
+    background-color: var(--white);
+    color: var(--navy);
+    transition: var(--transition);
+}
+
+.filter-select:focus {
+    border-color: var(--jade);
+    box-shadow: 0 0 0 3px rgba(91, 179, 129, 0.2);
+    outline: none;
+}
+
+/* Paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.pagination-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--beige-dark);
+    background-color: var(--white);
+    color: var(--navy);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pagination-btn:hover:not(.active, .disabled) {
+    border-color: var(--jade);
+    color: var(--jade);
+}
+
+.pagination-btn.active {
+    background-color: var(--jade);
+    color: white;
+    border-color: var(--jade);
+}
+
+/* Wishlist */
+.wishlist-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.wishlist-btn:hover {
+    transform: scale(1.1);
+}
+
+.wishlist-btn.active {
+    color: #dc3545;
+}
+
+/* Product Header */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .products-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .filters-container {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .product-card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-hero h1 {
+        font-size: 2rem;
+    }
+
+    .pagination {
+        gap: 5px;
+    }
+
+    .pagination-btn {
+        width: 35px;
+        height: 35px;
+    }
+}
+        :root {
+            --jade: #5BB381;
+            --jade-dark: #3E9A6B;
+            --navy: #2E3D59;
+            --navy-light: #3A4B6A;
+            --beige: #F5F0E6;
+            --beige-dark: #E8E0D1;
+            --gold: #D4AF37;
+            --gold-light: #E8C252;
+            --white: #FFFFFF;
+            --gray: #F8F9FA;
+            --dark-gray: #6C757D;
+            --black: #212529;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        [data-theme="dark"] {
+            --navy: #f5f5f5;
+            --beige: #1a1a1a;
+            --jade: #4CAF50;
+            --white: #121212;
+            --gray: #2a2a2a;
+            --beige-dark: #333;
+            --black: #f5f5f5;
+            --dark-gray: #aaa;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--navy);
+            background-color: var(--beige);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            gap: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--jade);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--jade-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        /* Hero Banner para Página de Produtos */
+        .products-hero {
+            background: linear-gradient(rgba(46, 61, 89, 0.85), rgba(46, 61, 89, 0.85)), 
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .products-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumb {
+            padding: 30px 0;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item:not(:last-child)::after {
+            content: '›';
+            margin-left: 10px;
+            color: var(--dark-gray);
+        }
+
+        .breadcrumb-link {
+            color: var(--dark-gray);
+            transition: var(--transition);
+        }
+
+        .breadcrumb-link:hover {
+            color: var(--jade);
+        }
+
+        .breadcrumb-link.current {
+            color: var(--jade);
+            font-weight: 600;
+        }
+    </style>
+
+    <!-- CSS não crítico -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </noscript>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Alternar modo escuro">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Header -->
+    <header id="main-header" role="banner">
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="AveiroHub - Página inicial">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="main">AveiroHub</span>
+                    <span class="sub">Mercado Local Premium</span>
+                </div>
+            </a>
+            
+            <nav class="main-nav" id="main-nav" role="navigation">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="produtos.html" class="nav-link active" aria-label="Produtos">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span>Produtos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="produtores.html" class="nav-link" aria-label="Produtores">
+                            <i class="fas fa-tractor"></i>
+                            <span>Produtores</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recolha.html" class="nav-link" aria-label="Pontos de recolha">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Pontos de Recolha</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="produtor.html" class="nav-link" aria-label="Área do produtor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Sou Produtor</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="nav-action" id="search-btn" aria-label="Pesquisar">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="nav-action" id="cart-btn" aria-label="Carrinho de compras">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">3</span>
+                </button>
+                <button class="btn btn-outline btn-sm" id="login-btn" aria-label="Área de login">
+                    <i class="fas fa-user"></i>
+                    <span>Login</span>
+                </button>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu móvel" aria-expanded="false">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner para Página de Produtos -->
+    <section class="products-hero" role="region" aria-label="Nossos produtos premium">
+        <div class="container">
+            <h1>Nossos Produtos Premium</h1>
+            <p>Descubra a excelência dos produtos locais de Aveiro</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="produtos.html" class="breadcrumb-link current">Produtos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Filtros Avançados -->
+    <section class="section-padding" style="padding-top: 50px; padding-bottom: 0;">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="category-filter" class="filter-label">Categoria</label>
+                    <select id="category-filter" class="filter-select">
+                        <option value="">Todas Categorias</option>
+                        <option value="frutas">Frutas</option>
+                        <option value="vegetais">Vegetais</option>
+                        <option value="lacticinios">Lacticínios</option>
+                        <option value="pescado">Pescado</option>
+                        <option value="artesanato">Artesanato</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="price-filter" class="filter-label">Preço</label>
+                    <select id="price-filter" class="filter-select">
+                        <option value="">Qualquer Preço</option>
+                        <option value="0-10">€0 - €10</option>
+                        <option value="10-20">€10 - €20</option>
+                        <option value="20-50">€20 - €50</option>
+                        <option value="50+">€50+</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="producer-filter" class="filter-label">Produtor</label>
+                    <select id="producer-filter" class="filter-select">
+                        <option value="">Todos Produtores</option>
+                        <option value="quinta-vale-verde">Quinta do Vale Verde</option>
+                        <option value="marisqueira-costa-nova">Marisqueira Costa Nova</option>
+                        <option value="apiario-mondego">Apiário do Mondego</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sort-by" class="filter-label">Ordenar por</label>
+                    <select id="sort-by" class="filter-select">
+                        <option value="relevance">Relevância</option>
+                        <option value="price-asc">Preço: Menor para Maior</option>
+                        <option value="price-desc">Preço: Maior para Menor</option>
+                        <option value="rating">Melhor Avaliados</option>
+                        <option value="newest">Mais Recentes</option>
+                    </select>
+                </div>
+                
+                <button id="reset-filters" class="btn btn-outline">Limpar Filtros</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listagem de Produtos -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Catálogo Completo</h2>
+                <p>Descubra os melhores produtos locais da região de Aveiro</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Produto 1 -->
+                <div class="product-card" data-category="frutas" data-price="3.50" data-producer="quinta-vale-verde" data-rating="4.5">
+                    <span class="product-badge">Novo</span>
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1630&q=80" alt="Mirtilos Frescos" class="product-img lazy" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h4 class="product-title">Mirtilos Frescos</h4>
+                            <button class="wishlist-btn" aria-label="Adicionar à lista de desejos">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <p class="product-producer"><i class="fas fa-user"></i> Quinta do Vale Verde</p>
+                        <p class="product-price">€3,50/kg <span class="product-old-price">€4,20</span></p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(12)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="1">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card" data-category="pescado" data-price="8.00" data-producer="marisqueira-costa-nova" data-rating="4.0">
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Peixe do Dia" class="product-img lazy" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h4 class="product-title">Peixe do Dia</h4>
+                            <button class="wishlist-btn" aria-label="Adicionar à lista de desejos">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <p class="product-producer"><i class="fas fa-user"></i> Marisqueira Costa Nova</p>
+                        <p class="product-price">€8,00/kg</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(8)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="2">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card" data-category="artesanato" data-price="7.50" data-producer="apiario-mondego" data-rating="5.0">
+                    <span class="product-badge">Mais Vendido</span>
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Mel Natural" class="product-img lazy" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h4 class="product-title">Mel Natural</h4>
+                            <button class="wishlist-btn active" aria-label="Remover da lista de desejos">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <p class="product-producer"><i class="fas fa-user"></i> Apiário do Mondego</p>
+                        <p class="product-price">€7,50/frasco <span class="product-old-price">€8,90</span></p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(23)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="3">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card" data-category="lacticinios" data-price="2.80" data-producer="quinta-pardieiros" data-rating="4.5">
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1576186726115-4d51596775d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ovos Caipiras" class="product-img lazy" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h4 class="product-title">Ovos Caipiras</h4>
+                            <button class="wishlist-btn" aria-label="Adicionar à lista de desejos">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <p class="product-producer"><i class="fas fa-user"></i> Quinta dos Pardieiros</p>
+                        <p class="product-price">€2,80/dúzia</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(17)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="4">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 5 -->
+                <div class="product-card" data-category="vegetais" data-price="4.20" data-producer="hortas-vouga" data-rating="4.0">
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Legumes da Horta" class="product-img lazy" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h4 class="product-title">Legumes da Horta</h4>
+                            <button class="wishlist-btn" aria-label="Adicionar à lista de desejos">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <p class="product-producer"><i class="fas fa-user"></i> Hortas do Vouga</p>
+                        <p class="product-price">€4,20/kg</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(9)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="5">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 6 -->
+                <div class="product-card" data-category="lacticinios" data-price="12.50" data-producer="queijaria-estrela" data-rating="5.0">
+                    <span class="product-badge">Oferta</span>
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Queijo de Ovelha" class="product-img lazy" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h4 class="product-title">Queijo de Ovelha</h4>
+                            <button class="wishlist-btn" aria-label="Adicionar à lista de desejos">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <p class="product-producer"><i class="fas fa-user"></i> Queijaria Serra da Estrela</p>
+                        <p class="product-price">€12,50/kg <span class="product-old-price">€15,00</span></p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(31)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="6">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paginação -->
+            <div class="pagination">
+                <button class="pagination-btn disabled" aria-label="Página anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn" aria-label="Próxima página">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-container">
+                <h2>Receba Nossas Ofertas</h2>
+                <p>Assine nossa newsletter e receba descontos exclusivos e novidades sobre produtos locais</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor e-mail" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Assinar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="logo" style="color: white; margin-bottom: 25px;">
+                        <i class="fas fa-leaf"></i>
+                        <span>AveiroHub</span>
+                    </div>
+                    <p>Conectando produtores locais a consumidores que valorizam qualidade, sustentabilidade e comércio justo desde 2018.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="produtos.html"><i class="fas fa-chevron-right"></i> Produtos</a></li>
+                        <li><a href="produtores.html"><i class="fas fa-chevron-right"></i> Produtores</a></li>
+                        <li><a href="recolha.html"><i class="fas fa-chevron-right"></i> Pontos de Recolha</a></li>
+                        <li><a href="produtor.html"><i class="fas fa-chevron-right"></i> Tornar-se Produtor</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Termos e Condições</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Informações</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sustentabilidade</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Perguntas Frequentes</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contactos</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@aveirohub.com"><i class="fas fa-envelope"></i> info@aveirohub.com</a></li>
+                        <li><a href="tel:+351234567890"><i class="fas fa-phone"></i> +351 234 567 890</a></li>
+                        <li><a href="https://wa.me/351912345678"><i class="fab fa-whatsapp"></i> +351 912 345 678</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Rua dos Mercados, 45 - Aveiro</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fab fa-cc-visa"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-mastercard"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+                <div class="payment-method">
+                    MB Way
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 AveiroHub. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: #dc3545;"></i> em Aveiro, Portugal</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Visualização Rápida -->
+    <div class="modal" id="quick-view-modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="close-modal">&times;</span>
+            <div class="quick-view-content">
+                <!-- Conteúdo será preenchido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode
+        const themeToggle = document.getElementById('dark-mode-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.toggleAttribute('data-theme');
+            const isDark = document.documentElement.hasAttribute('data-theme');
+            themeToggle.innerHTML = `<i class="fas fa-${isDark ? 'sun' : 'moon'}"></i>`;
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Verificar tema salvo
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Filtros de Produtos
+        const filters = {
+            category: '',
+            price: '',
+            producer: '',
+            sort: 'relevance'
+        };
+
+        document.querySelectorAll('.filter-select').forEach(select => {
+            select.addEventListener('change', (e) => {
+                filters[e.target.id.replace('-filter', '')] = e.target.value;
+                applyFilters();
+            });
+        });
+
+        function applyFilters() {
+            const products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                const matchesCategory = !filters.category || product.dataset.category === filters.category;
+                
+                let matchesPrice = true;
+                if (filters.price) {
+                    const [min, max] = filters.price.split('-');
+                    const price = parseFloat(product.dataset.price);
+                    
+                    if (max) {
+                        matchesPrice = price >= parseFloat(min) && price <= parseFloat(max);
+                    } else {
+                        matchesPrice = price >= parseFloat(min);
+                    }
+                }
+                
+                const matchesProducer = !filters.producer || product.dataset.producer === filters.producer;
+                
+                product.style.display = (matchesCategory && matchesPrice && matchesProducer) ? 'block' : 'none';
+            });
+            
+            // Ordenação
+            sortProducts();
+        }
+
+        function sortProducts() {
+            const container = document.querySelector('.products-grid');
+            const products = Array.from(document.querySelectorAll('.product-card'));
+            
+            products.sort((a, b) => {
+                switch(filters.sort) {
+                    case 'price-asc':
+                        return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                    case 'price-desc':
+                        return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                    case 'rating':
+                        return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+                    case 'newest':
+                        return parseInt(b.dataset.id) - parseInt(a.dataset.id);
+                    default:
+                        return 0;
+                }
+            });
+            
+            products.forEach(product => container.appendChild(product));
+        }
+
+        // Wishlist
+        document.querySelectorAll('.wishlist-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = btn.closest('.product-card').dataset.id;
+                const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                
+                if (btn.classList.contains('active')) {
+                    // Remover da wishlist
+                    const index = wishlist.indexOf(productId);
+                    if (index > -1) {
+                        wishlist.splice(index, 1);
+                    }
+                    btn.innerHTML = '<i class="far fa-heart"></i>';
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-label', 'Adicionar à lista de desejos');
+                } else {
+                    // Adicionar à wishlist
+                    wishlist.push(productId);
+                    btn.innerHTML = '<i class="fas fa-heart"></i>';
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-label', 'Remover da lista de desejos');
+                }
+                
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            });
+        });
+
+        // Verificar wishlist ao carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            
+            wishlist.forEach(productId => {
+                const btn = document.querySelector(`.product-card[data-id="${productId}"] .wishlist-btn`);
+                if (btn) {
+                    <!-- Continuação do JavaScript -->
+                        btn.setAttribute('aria-label', 'Remover da lista de desejos');
+                }
+            });
+        });
+
+        // Quick View Modal
+        document.querySelectorAll('.quick-view-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productCard = btn.closest('.product-card');
+                const productData = {
+                    id: productCard.dataset.id,
+                    name: productCard.querySelector('.product-title').textContent,
+                    price: productCard.dataset.price,
+                    producer: productCard.querySelector('.product-producer').textContent,
+                    image: productCard.querySelector('.product-img').src,
+                    rating: productCard.dataset.rating,
+                    description: "Descrição detalhada do produto...", // Adicionar dados reais
+                    details: "Informações nutricionais e características especiais..." // Adicionar dados reais
+                };
+
+                populateQuickView(productData);
+                document.getElementById('quick-view-modal').classList.add('active');
+            });
+        });
+
+        function populateQuickView(data) {
+            const modalContent = document.querySelector('#quick-view-modal .quick-view-content');
+            modalContent.innerHTML = `
+                <div class="quick-view-img">
+                    <img src="${data.image}" alt="${data.name}">
+                </div>
+                <div class="quick-view-details">
+                    <h3 class="quick-view-title">${data.name}</h3>
+                    <p class="quick-view-producer">${data.producer}</p>
+                    <p class="quick-view-price">€${parseFloat(data.price).toFixed(2)}</p>
+                    <div class="quick-view-rating">
+                        ${generateRatingStars(data.rating)}
+                        <span>(${data.rating}/5)</span>
+                    </div>
+                    <p class="quick-view-description">${data.description}</p>
+                    <div class="quick-view-details-list">
+                        <h4>Características Principais:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Produção 100% natural</li>
+                            <li><i class="fas fa-check"></i> Sem conservantes</li>
+                            <li><i class="fas fa-check"></i> Embalagem sustentável</li>
+                        </ul>
+                    </div>
+                    <div class="quick-view-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <button class="btn btn-primary">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            `;
+
+            // Adicionar funcionalidade ao seletor de quantidade
+            modalContent.querySelectorAll('.quantity-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const input = btn.parentElement.querySelector('.quantity-input');
+                    let value = parseInt(input.value);
+                    
+                    if (btn.textContent === '+' && value < 10) {
+                        input.value = value + 1;
+                    } else if (btn.textContent === '-' && value > 1) {
+                        input.value = value - 1;
+                    }
+                });
+            });
+        }
+
+        function generateRatingStars(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+            const emptyStars = 5 - fullStars - halfStar;
+            
+            return `
+                ${'<i class="fas fa-star"></i>'.repeat(fullStars)}
+                ${halfStar ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                ${'<i class="far fa-star"></i>'.repeat(emptyStars)}
+            `;
+        }
+
+        // Paginação
+        document.querySelectorAll('.pagination-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (btn.classList.contains('active') || btn.classList.contains('disabled')) return;
+                
+                document.querySelector('.pagination-btn.active').classList.remove('active');
+                btn.classList.add('active');
+                // Adicionar lógica de carregamento de página aqui
+            });
+        });
+
+        // Newsletter
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            // Adicionar lógica de newsletter aqui
+            alert('Obrigado por assinar nossa newsletter!');
+            e.target.reset();
+        });
+
+        // Resetar Filtros
+        document.getElementById('reset-filters').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.filter-select').forEach(select => {
+                select.value = '';
+            });
+            filters = {
+                category: '',
+                price: '',
+                producer: '',
+                sort: 'relevance'
+            };
+            applyFilters();
+        });
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            // Carregar wishlist
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.forEach(id => {
+                const btn = document.querySelector(`.product-card[data-id="${id}"] .wishlist-btn`);
+                if (btn) {
+                    btn.innerHTML = '<i class="fas fa-heart"></i>';
+                    btn.classList.add('active');
+                }
+            });
+
+            // Inicializar filtros
+            applyFilters();
+        });
+    </script>
+</body>
+</html>
