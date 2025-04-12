@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AveiroHub | Mercado de Produtos Locais Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+   <link rel="stylesheet" href="css/estilo.css">
+</head>
+<script>
+    window.addEventListener('load', () => {
+        // Make sure this function exists, or remove if not needed
+        // createParticles(); 
+
+        const loading = document.getElementById('loading-screen');
+        
+        // Add transition before changing opacity
+        loading.style.transition = 'opacity 0.5s ease';
+        
+        setTimeout(() => {
+            loading.style.opacity = '0';
+
+            setTimeout(() => {
+                loading.remove(); // Remove from DOM
+            }, 500); // Wait for transition to finish
+        }, 1500);
+    });
+</script>
+
+<div id="loading-screen">
+    <div class="loading-particles" id="particles"></div>
+
+    <div class="loading-container">
+        <div class="logos">
+            <div class="logo-icons">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <div class="logo-text">
+                <span class="main">AveiroHub</span>
+                <span class="sub">Mercado Local Premium</span>
+            </div>
+        </div>
+
+        <div class="loading-progress">
+            <div class="loading-progress-bar"></div>
+        </div>
+
+        <div class="loading-text">
+            A carregar experiência premium
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Header Premium -->
+    <header id="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="main">AveiroHub</span>
+                    <span class="sub">Mercado Local Premium</span>
+                </div>
+            </a>
+            
+            <div class="nav-container">
+                <nav class="main-nav" id="main-nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#products" class="nav-link">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Produtos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#producers" class="nav-link">
+                                <i class="fas fa-tractor"></i>
+                                <span>Produtores</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#pickup" class="nav-link">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Pontos de Recolha</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#signup" class="nav-link">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Sou Produtor</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="nav-actions">
+                    <div class="nav-action" id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="nav-action" id="cart-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">3</span>
+                    </div>
+                    <a href="#login" class="btn btn-outline btn-sm" id="login-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Descubra o Sabor Autêntico de Aveiro</h1>
+            <p>Produtos locais premium, entregues na sua porta ou disponíveis para recolha em pontos próximos</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn btn-primary pulse">Explorar Produtos</a>
+                <a href="#signup" class="btn btn-secondary">Junte-se a Nós</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Porquê Escolher AveiroHub</h2>
+                <p>Conectamos você diretamente aos melhores produtores locais da região de Aveiro</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Receba seus produtos frescos em casa em 24-48 horas ou escolha um dos nossos pontos de recolha convenientes</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Qualidade Garantida</h3>
+                    <p>Todos os produtos são cuidadosamente selecionados e inspecionados para garantir os mais altos padrões</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Comércio Justo</h3>
+                    <p>80% do valor vai diretamente para o produtor, apoiando a economia local e práticas sustentáveis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products section-padding" id="products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Destaques do Dia</h2>
+                <div class="filter-btns">
+                    <button class="filter-btn active" data-category="all">Todos</button>
+                    <button class="filter-btn" data-category="fruits">Frutas</button>
+                    <button class="filter-btn" data-category="vegetables">Vegetais</button>
+                    <button class="filter-btn" data-category="fish">Pescado</button>
+                    <button class="filter-btn" data-category="artisan">Artesanato</button>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Frutas -->
+                <div class="product-card" data-category="fruits">
+                    <span class="product-badge">Novo</span>
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1630&q=80" alt="Mirtilos" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Mirtilos Frescos</h4>
+                        <p class="product-producer"><i class="fas fa-user"></i> Quinta do Vale Verde</p>
+                        <p class="product-price">€3,50/kg <span class="product-old-price">€4,20</span></p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(12)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="1">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Pescado -->
+                <div class="product-card" data-category="fish">
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Peixe" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Peixe do Dia</h4>
+                        <p class="product-producer"><i class="fas fa-user"></i> Marisqueira Costa Nova</p>
+                        <p class="product-price">€8,00/kg</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(8)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="2">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Artesanato -->
+                <div class="product-card" data-category="artisan">
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Mel" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Mel Natural</h4>
+                        <p class="product-producer"><i class="fas fa-user"></i> Apiário do Mondego</p>
+                        <p class="product-price">€7,50/frasco <span class="product-old-price">€8,90</span></p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(23)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="3">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Frutas -->
+                <div class="product-card" data-category="fruits">
+                    <span class="product-badge">Popular</span>
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1576186726115-4d51596775d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ovos" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Ovos Caipiras</h4>
+                        <p class="product-producer"><i class="fas fa-user"></i> Quinta dos Pardieiros</p>
+                        <p class="product-price">€2,80/dúzia</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(17)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="4">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Vegetais -->
+                <div class="product-card" data-category="vegetables">
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Legumes" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Legumes da Horta</h4>
+                        <p class="product-producer"><i class="fas fa-user"></i> Hortas do Vouga</p>
+                        <p class="product-price">€4,20/kg</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(9)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="5">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Artesanato -->
+                <div class="product-card" data-category="artisan">
+                    <span class="product-badge">Oferta</span>
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Queijo" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Queijo de Ovelha</h4>
+                        <p class="product-producer"><i class="fas fa-user"></i> Queijaria Serra da Estrela</p>
+                        <p class="product-price">€12,50/kg <span class="product-old-price">€15,00</span></p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(31)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="6">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Vegetais -->
+                <div class="product-card" data-category="vegetables">
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Tomate" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Tomate Coração</h4>
+                        <p class="product-producer"><i class="fas fa-user"></i> Quinta Biológica</p>
+                        <p class="product-price">€3,90/kg</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(14)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="7">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Pescado -->
+                <div class="product-card" data-category="fish">
+                    <div class="product-img-container">
+                        <img src="https://images.unsplash.com/photo-1518544883879-1f3163937aae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Marisco" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Marisco Fresco</h4>
+                        <p class="product-producer"><i class="fas fa-user"></i> Ria de Aveiro</p>
+                        <p class="product-price">€15,00/kg</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(11)</span>
+                        </div>
+                        <button class="product-btn quick-view-btn" data-id="8">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all">
+                <a href="#" class="btn btn-primary">Ver Todos os Produtos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Basket Section -->
+    <section class="daily-basket section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cabaz do Dia</h2>
+                <p>Uma seleção especial de produtos sazonais preparada para si com desconto exclusivo</p>
+            </div>
+            
+            <div class="basket-container">
+                <div class="basket-img"></div>
+                <div class="basket-content">
+                    <p class="basket-date">Sugestão para <span id="today-date"></span></p>
+                    <h3 class="basket-title">Cabaz de Frutas da Estação</h3>
+                    <p class="basket-subtitle">Uma seleção das melhores frutas colhidas esta manhã pelos nossos produtores locais</p>
+                    <ul class="basket-items">
+                        <li><span></span></li>
+                    </ul>
+                    <p class="basket-price"><span></span></p>
+                    <button class="btn btn-primary" style="width: 100%;">Encomendar Cabaz</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Producers Section -->
+    <section class="producers section-padding" id="producers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Produtores</h2>
+                <p>Conheça os produtores locais que tornam o AveiroHub especial</p>
+            </div>
+            
+            <div class="producers-grid">
+                <div class="producer-card">
+                    <div class="producer-header">
+                        <div class="producer-bg"></div>
+                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="João Silva" class="producer-avatar">
+                    </div>
+                    <div class="producer-body">
+                        <h3 class="producer-name">João Silva</h3>
+                        <p class="producer-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Ílhavo, Aveiro
+                        </p>
+                        <p class="producer-bio">Produtor de frutas vermelhas desde 2010, com métodos de cultivo sustentáveis e respeito pelo meio ambiente.</p>
+                        <div class="producer-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(24 avaliações)</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Ver Produtos</a>
+                    </div>
+                </div>
+                
+                <div class="producer-card">
+                    <div class="producer-header">
+                        <div class="producer-bg"></div>
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Maria Costa" class="producer-avatar">
+                    </div>
+                    <div class="producer-body">
+                        <h3 class="producer-name">Maria Costa</h3>
+                        <p class="producer-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Costa Nova, Aveiro
+                        </p>
+                        <p class="producer-bio">Marisqueira tradicional com mais de 20 anos de experiência, trazendo o melhor pescado da Ria de Aveiro.</p>
+                        <div class="producer-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(36 avaliações)</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Ver Produtos</a>
+                    </div>
+                </div>
+                
+                <div class="producer-card">
+                    <div class="producer-header">
+                        <div class="producer-bg"></div>
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="António Oliveira" class="producer-avatar">
+                    </div>
+                    <div class="producer-body">
+                        <h3 class="producer-name">António Oliveira</h3>
+                        <p class="producer-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Vagos, Aveiro
+                        </p>
+                        <p class="producer-bio">Apicultor artesanal produzindo mel puro e derivados da colmeia com técnicas tradicionais há mais de 30 anos.</p>
+                        <div class="producer-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(42 avaliações)</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Ver Produtos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Dizem Nossos Clientes</h2>
+                <p>Depoimentos de quem já experimentou os produtos AveiroHub</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cliente" class="testimonial-avatar">
+                    <p class="testimonial-text">Desde que descobri o AveiroHub, minha alimentação mudou completamente. Os produtos são frescos, saborosos e chegam em perfeito estado. Além disso, adoro saber que estou apoiando produtores locais.</p>
+                    <h4 class="testimonial-author">Ana Rodrigues</h4>
+                    <p class="testimonial-role">Cliente há 2 anos</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Cliente" class="testimonial-avatar">
+                    <p class="testimonial-text">O cabaz semanal é a melhor coisa que já comprei online! Sempre variado, com produtos da estação e de excelente qualidade. Minha família adora descobrir os novos sabores a cada semana.</p>
+                    <h4 class="testimonial-author">Carlos Mendes</h4>
+                    <p class="testimonial-role">Assinante do Cabaz Semanal</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Cliente" class="testimonial-avatar">
+                    <p class="testimonial-text">Como chef de cozinha, exijo o melhor para meus pratos. No AveiroHub encontro ingredientes premium, com origem garantida e um atendimento personalizado que faz toda a diferença.</p>
+                    <h4 class="testimonial-author">Ricardo Sousa</h4>
+                    <p class="testimonial-role">Chef do Restaurante Sabores do Mar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pickup Points Section -->
+    <section class="pickup-points section-padding" id="pickup">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pontos de Recolha</h2>
+                <p>Escolha o local mais conveniente para recolher seus produtos frescos</p>
+            </div>
+            
+            <div class="pickup-container">
+                <div id="map"></div>
+                <div class="points-list">
+                    <div class="point-card">
+                        <h3><i class="fas fa-store"></i> Café Central</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua do Comércio, 123 - Aveiro</p>
+                        <p><i class="fas fa-clock"></i> Segunda a Sexta: 8h - 20h</p>
+                        <p><i class="fas fa-phone"></i> 234 567 890</p>
+                    </div>
+                    
+                    <div class="point-card">
+                        <h3><i class="fas fa-shopping-basket"></i> Mercado Municipal</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Praça do Peixe - Aveiro</p>
+                        <p><i class="fas fa-clock"></i> Terça a Sábado: 7h - 13h</p>
+                        <p><i class="fas fa-phone"></i> 234 567 891</p>
+                    </div>
+                    
+                    <div class="point-card">
+                        <h3><i class="fas fa-school"></i> Escola Primária</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Avenida da Liberdade, 45 - Ílhavo</p>
+                        <p><i class="fas fa-clock"></i> Segunda a Sexta: 15h - 19h</p>
+                        <p><i class="fas fa-phone"></i> 234 567 892</p>
+                    </div>
+                    
+                    <div class="point-card">
+                        <h3><i class="fas fa-parking"></i> Parque de Estacionamento</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua dos Pescadores - Costa Nova</p>
+                        <p><i class="fas fa-clock"></i> Todos os dias: 9h - 21h</p>
+                        <p><i class="fas fa-phone"></i> 234 567 893</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-container">
+                <h2>Receba Nossas Ofertas</h2>
+                <p>Assine nossa newsletter e receba descontos exclusivos e novidades sobre produtos locais</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor e-mail" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Assinar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Producer Signup Section -->
+    <section class="producer-signup section-padding" id="signup">
+        <div class="container">
+            <div class="signup-container">
+                <div class="signup-title">
+                    <h2>Quer vender no AveiroHub?</h2>
+                    <p>Preencha o formulário e entraremos em contacto para validar o seu cadastro</p>
+                </div>
+                
+                <form id="signup-form" action="php/Form.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="business">Nome do Negócio/Quinta</label>
+                            <input type="text" id="business" name="business" required>
+                        </div>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="Password" id="password" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="phone">Telefone/WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="location">Localização (Concelho/Freguesia)</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="products">Que produtos pretende vender?</label>
+                        <textarea id="products" name="products" placeholder="Ex: Frutas, legumes, peixe, queijos, artesanato, etc." required></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="description">Descreva brevemente o seu negócio</label>
+                        <textarea id="description" name="description" placeholder="História, métodos de produção, certificações, etc." required></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label>Fotos dos seus produtos (máx. 5MB cada)</label>
+                        <div class="file-upload">
+                            <label for="photos" class="file-upload-label" id="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Selecionar Fotos</span>
+                            </label>
+                            <input type="file" id="photos" name="photos[]" multiple accept="image/*" class="file-upload-input">
+                            <div id="file-preview" style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px;"></div>
+                        </div>
+                    </div>
+                
+                    <button type="submit" class="form-submit">Enviar Cadastro</button>
+                </form>
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Entrar na Minha Conta</h2>
+            <form id="login-form" action="php/login/login.php" method="post">
+                <div class="form-group">
+                    <label for="login-email" >E-mail</label>
+                    <input type="email" id="login-email" placeholder="seu@email.com" name="Email" required>
+                </div>
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-Username">Username</label>
+                        <input type="text" id="login-Username" placeholder="Username" name="username" required>
+                    </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Sua password" name="password" required>
+                </div>
+                
+                <div style="text-align: right; margin-bottom: 20px;">
+                    <a href="#" style="color: var(--jade); font-size: 0.9rem;">Esqueceu a password?</a>
+                </div>
+                
+                <button type="submit" class="form-submit">Entrar</button>
+                <p style="text-align: center; margin-top: 25px;">Ainda não tem conta? <a href="SignIn.html" style="color: var(--jade); font-weight: 600;">Registe-se aqui</a></p>
+            </form>
+        </div>
+    </div>
+<script>
+   window.onload = function() {
+    // Get query parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const loginStatus = urlParams.get('login');
+    console.log("It loaded");
+
+    // Create the modal element
+    const modal = createModal();
+
+    // Show error message if 'login=error' is found in the URL
+    if (loginStatus === 'error') {
+        const errorMessageDiv = createMessage('Incorrect login info. Please try again.', 'error');
+        modal.appendChild(errorMessageDiv);
+        modal.style.display = 'block'; // Show the modal
+    }
+
+    // Show success message if 'login=success' is found in the URL
+    if (loginStatus === 'success') {
+        const successMessageDiv = createMessage('Login successful!', 'success');
+        modal.appendChild(successMessageDiv);
+        modal.style.display = 'block'; // Show the modal
+    }
+
+    // Append the modal to the body
+    document.body.appendChild(modal);
+};
+
+// Function to create modal with close button
+function createModal() {
+    const modal = document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.top = '50%';
+    modal.style.left = '50%';
+    modal.style.transform = 'translate(-50%, -50%)';
+    modal.style.padding = '20px';
+    modal.style.zIndex = '1000';
+    modal.style.borderRadius = '10px';
+    modal.style.backgroundColor = '#fff';
+    modal.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    modal.style.display = 'none'; // Hidden by default
+
+    // Create the close button for the modal
+    const closeButton = document.createElement('button');
+    closeButton.innerHTML = 'Close';
+    closeButton.style.marginTop = '15px';
+    closeButton.style.padding = '8px 16px';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '5px';
+    closeButton.style.backgroundColor = '#007bff';
+    closeButton.style.color = '#fff';
+    closeButton.style.cursor = 'pointer';
+
+    closeButton.onclick = function() {
+        modal.style.display = 'none'; 
+        
+        
+    };
+
+    modal.appendChild(closeButton);
+    return modal;
+}
+
+// Function to create message content
+function createMessage(message, type) {
+    const messageDiv = document.createElement('div');
+    messageDiv.style.fontSize = '18px';
+    messageDiv.style.padding = '15px';
+    messageDiv.style.marginBottom = '20px';
+    messageDiv.style.borderRadius = '5px';
+    
+    // Set colors based on message type
+    if (type === 'error') {
+        messageDiv.style.color = '#721c24';
+        messageDiv.style.backgroundColor = '#f8d7da';
+        messageDiv.style.border = '1px solid #f5c6cb';
+    } else if (type === 'success') {
+        messageDiv.style.color = '#155724';
+        messageDiv.style.backgroundColor = '#d4edda';
+        messageDiv.style.border = '1px solid #c3e6cb';
+    }
+
+    messageDiv.innerHTML = message;
+    return messageDiv;
+}
+
+
+</script>
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Meu Carrinho</h2>
+            
+            <div class="cart-items">
+               
+            </div>
+            
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="Total"></span>
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal" id="quick-view-modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="close-modal">&times;</span>
+            <div class="quick-view-content">
+                <div class="quick-view-img">
+                    <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1630&q=80" alt="Mirtilos">
+                </div>
+                <div class="quick-view-details">
+                    <h3 class="quick-view-title">Mirtilos Frescos</h3>
+                    <p class="quick-view-producer">Quinta do Vale Verde | Ílhavo, Aveiro</p>
+                    <p class="quick-view-price">€3,50/kg <span style="font-size: 1rem; color: var(--dark-gray); text-decoration: line-through;">€4,20</span></p>
+                    <div class="quick-view-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(12 avaliações)</span>
+                    </div>
+                    <p class="quick-view-description">
+                        Mirtilos frescos colhidos manualmente esta manhã. Cultivados sem pesticidas e com métodos sustentáveis. Cada fruto é selecionado à mão para garantir a máxima qualidade e sabor. Rico em antioxidantes e vitaminas.
+                    </p>
+                    <div class="quick-view-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <button class="btn btn-primary" style="flex: 1;">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal" id="search-modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <span class="close-modal">&times;</span>
+            <h2>Pesquisar Produtos</h2>
+            <div style="position: relative; margin-bottom: 30px;">
+                <input type="text" placeholder="O que está procurando?" style="width: 100%; padding: 15px 20px; border: 2px solid var(--jade); border-radius: 30px; font-size: 1.1rem;">
+                <button style="position: absolute; right: 5px; top: 5px; background-color: var(--jade); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer;">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div style="text-align: center;">
+                <p style="color: var(--dark-gray);">Experimente pesquisar por: <a href="#" style="color: var(--jade);">frutas</a>, <a href="#" style="color: var(--jade);">vegetais</a>, <a href="#" style="color: var(--jade);">pescado</a> ou <a href="#" style="color: var(--jade);">produtor específico</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="logo" style="color: white; margin-bottom: 25px;">
+                        <i class="fas fa-leaf"></i>
+                        <span>AveiroHub</span>
+                    </div>
+                    <p>Conectando produtores locais a consumidores que valorizam qualidade, sustentabilidade e comércio justo desde 2018.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> Produtos</a></li>
+                        <li><a href="#producers"><i class="fas fa-chevron-right"></i> Produtores</a></li>
+                        <li><a href="#pickup"><i class="fas fa-chevron-right"></i> Pontos de Recolha</a></li>
+                        <li><a href="#signup"><i class="fas fa-chevron-right"></i> Tornar-se Produtor</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Termos e Condições</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Informações</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sustentabilidade</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Perguntas Frequentes</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contactos</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@aveirohub.com"><i class="fas fa-envelope"></i> info@aveirohub.com</a></li>
+                        <li><a href="tel:+351234567890"><i class="fas fa-phone"></i> +351 234 567 890</a></li>
+                        <li><a href="https://wa.me/351912345678"><i class="fab fa-whatsapp"></i> +351 912 345 678</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Rua dos Mercados, 45 - Aveiro</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fab fa-cc-visa"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-mastercard"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+                <div class="payment-method">
+                    MB Way
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 AveiroHub. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: #dc3545;"></i> em Aveiro, Portugal</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+   <script src="js/app.js"></script>
+</body>
+</html>
