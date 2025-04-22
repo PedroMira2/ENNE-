@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AveiroHub | Perguntas Frequentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --jade: #5BB381;
+            --jade-dark: #3E9A6B;
+            --navy: #2E3D59;
+            --navy-light: #3A4B6A;
+            --beige: #F5F0E6;
+            --beige-dark: #E8E0D1;
+            --gold: #D4AF37;
+            --gold-light: #E8C252;
+            --white: #FFFFFF;
+            --gray: #F8F9FA;
+            --dark-gray: #6C757D;
+            --black: #212529;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--navy);
+            background-color: var(--beige);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            gap: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--jade);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--jade-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--navy);
+            border-color: var(--navy);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--navy);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--jade);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .main {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .logo-text .sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            color: var(--jade);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .main-nav {
+            display: flex;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--jade);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--jade);
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-action {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            color: var(--navy);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-action:hover {
+            background-color: var(--jade);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--gold);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            width: 24px;
+            height: 16px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--navy);
+            position: absolute;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger span:nth-child(3) {
+            bottom: 0;
+        }
+
+        .mobile-menu-btn.active .hamburger span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active .hamburger span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .hamburger span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* FAQ Hero Section */
+        .faq-hero {
+            background: linear-gradient(rgba(46, 61, 89, 0.85), rgba(46, 61, 89, 0.85)), 
+                        url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 70vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--beige));
+            z-index: 1;
+        }
+
+        .faq-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .faq-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .faq-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            padding: 20px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--navy);
+        }
+
+        .faq-question i {
+            color: var(--jade);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px 20px;
+            display: none;
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--beige);
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-container h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-container p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .contact-link i {
+            color: var(--jade);
+            font-size: 1.2rem;
+        }
+
+        .contact-link:hover {
+            color: var(--jade);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10 Click here to copy
+            padding-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            width: 45px;
+            height: 28px;
+            background-color: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--navy);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .faq-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 0;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: var(--shadow-lg);
+                padding: 30px;
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+                z-index: 999;
+            }
+
+            .main-nav.active {
+                transform: translateY(0);
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-actions {
+                margin-left: auto;
+                margin-right: 15px;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .faq-hero {
+                min-height: 500px;
+            }
+
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-padding {
+                padding: 70px 0;
+            }
+
+            .faq-hero {
+                height: auto;
+                padding: 120px 0 80px;
+                min-height: auto;
+            }
+
+            .faq-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .faq-hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2::after {
+                width: 60px;
+                height: 3px;
+                bottom: -12px;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="main">AveiroHub</span>
+                    <span class="sub">Mercado Local Premium</span>
+                </div>
+            </a>
+            
+            <div class="nav-container">
+                <nav class="main-nav" id="main-nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html#products" class="nav-link">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Produtos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#producers" class="nav-link">
+                                <i class="fas fa-tractor"></i>
+                                <span>Produtores</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#pickup" class="nav-link">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Pontos de Recolha</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Sobre Nós</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="faq.html" class="nav-link">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Perguntas Frequentes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="nav-actions">
+                    <div class="nav-action" id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="nav-action" id="cart-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <a href="#login" class="btn btn-outline btn-sm" id="login-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ Hero Section -->
+    <section class="faq-hero">
+        <div class="faq-hero-content">
+            <h1>Perguntas Frequentes</h1>
+            <p>Encontre respostas para as dúvidas mais comuns sobre o AveiroHub, nossos produtos e serviços.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Respostas para Suas Dúvidas</h2>
+                <p>Selecionamos as perguntas mais frequentes para ajudar você a entender melhor como funciona o AveiroHub.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>O que é o AveiroHub?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        O AveiroHub é uma plataforma que conecta produtores locais da região de Aveiro a consumidores, oferecendo produtos frescos e de qualidade premium. Nosso objetivo é promover a sustentabilidade, o comércio justo e apoiar a economia local.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como faço uma encomenda?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Para fazer uma encomenda, navegue pela seção de produtos, selecione os itens desejados e adicione-os ao carrinho. Depois, siga para o checkout, escolha entre entrega ao domicílio ou ponto de recolha, e finalize o pagamento. Você receberá uma confirmação por e-mail.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quais são as opções de entrega?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Oferecemos entrega ao domicílio em 24-48 horas na região de Aveiro ou recolha em pontos convenientes, como cafés, mercados ou outros locais listados na seção "Pontos de Recolha" do nosso site.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como garantem a qualidade dos produtos?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Trabalhamos apenas com produtores locais que seguem padrões rigorosos de qualidade. Todos os produtos são inspecionados antes do envio para garantir frescor e excelência. Além disso, muitos dos nossos produtores utilizam métodos sustentáveis e orgânicos.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso devolver um produto se não estiver satisfeito?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sim, aceitamos devoluções em caso de produtos danificados ou que não atendam aos padrões de qualidade. Entre em contato conosco em até 48 horas após o recebimento através do e-mail info@aveirohub.com para organizar a devolução ou substituição.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como posso me tornar um produtor no AveiroHub?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Se você é um produtor local, pode se inscrever através da seção "Sou Produtor" no nosso site. Preencha o formulário com informações sobre seu negócio e produtos. Nossa equipe entrará em contato para validar seu cadastro e discutir os próximos passos.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quais são os métodos de pagamento aceites?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Aceitamos vários métodos de pagamento, incluindo cartão de crédito/débito (Visa, Mastercard), PayPal, Apple Pay e MB Way. Todos os pagamentos são processados de forma segura.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>O que é o Cabaz do Dia?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        O Cabaz do Dia é uma seleção especial de produtos sazonais escolhidos pelos nossos produtores, oferecida com desconto exclusivo. É ideal para quem quer experimentar uma variedade de itens frescos e apoiar produtores locais.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funciona a newsletter do AveiroHub?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Ao assinar nossa newsletter, você receberá atualizações sobre novos produtos, promoções exclusivas e dicas de receitas. Pode se inscrever na seção "Newsletter" do site, e você pode cancelar a inscrição a qualquer momento.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>O que faço se tiver uma dúvida que não está nesta lista?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Se sua dúvida não estiver respondida aqui, entre em contato conosco por e-mail (info@aveirohub.com), telefone (+351 234 567 890) ou WhatsApp (+351 912 345 678). Nossa equipe está disponível de segunda a sexta, das 9h às 18h.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-padding">
+        <div class="container">
+            <div class="contact-container">
+                <h2>Precisa de Mais Ajuda?</h2>
+                <p>Entre em contato com nossa equipe para esclarecer qualquer dúvida ou obter suporte personalizado.</p>
+                <div class="contact-links">
+                    <a href="mailto:info@aveirohub.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@aveirohub.com</span>
+                    </a>
+                    <a href="tel:+351234567890" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        <span>+351 234 567 890</span>
+                    </a>
+                    <a href="https://wa.me/351912345678" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+351 912 345 678</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="logo" style="color: white; margin-bottom: 25px;">
+                        <i class="fas fa-leaf"></i>
+                        <span>AveiroHub</span>
+                    </div>
+                    <p>Conectando produtores locais a consumidores que valorizam qualidade, sustentabilidade e comércio justo desde 2018.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#products"><i class="fas fa-chevron-right"></i> Produtos</a></li>
+                        <li><a href="index.html#producers"><i class="fas fa-chevron-right"></i> Produtores</a></li>
+                        <li><a href="index.html#pickup"><i class="fas fa-chevron-right"></i> Pontos de Recolha</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Informações</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sustentabilidade</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Termos e Condições</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contactos</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@aveirohub.com"><i class="fas fa-envelope"></i> info@aveirohub.com</a></li>
+                        <li><a href="tel:+351234567890"><i class="fas fa-phone"></i> +351 234 567 890</a></li>
+                        <li><a href="https://wa.me/351912345678"><i class="fas fa-whatsapp"></i> +351 912 345 678</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Rua dos Mercados, 45 - Aveiro</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fab fa-cc-visa"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-mastercard"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+                <div class="payment-method">
+                    MB Way
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 AveiroHub. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: #dc3545;"></i> em Aveiro, Portugal</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle the clicked FAQ item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
